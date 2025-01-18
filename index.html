@@ -12,7 +12,7 @@
   <div class="container oo">
     <nav>
       <div class="dropdown">
-        <button id="add" class="dropbtn">Configuration</button>
+        <h1 id="add" class="dropbtn">Configuration</h1>
         <div class="dropdown-content">
           <a href="#">Build Database</a>
           <a href="#">Client Registration</a>
@@ -31,12 +31,11 @@
           <a href="#">Consolidate ProductMaps</a>
         </div>
       </div>
-      <h1>Master</h1>
-      <h1>Branch</h1>
-      <h1>Transaction</h1>
+      <div><h1>Master</h1></div>
+      <div><h1>Transaction</h1></div>
       <div class="dropdown">
-        <button class="blinking-text" id="remove" class="dropbtn">System</button>
-        <div class="dropdown-content">
+       <h1 class="blinking-text" id="remove" class="dropbtn">System</h1>
+        <div class="dropdown-content b">
           <a href="#" class="blinking-text" id="openPopup">Backup</a>
           <a href="#">Restore</a>
           <a href="#">Import/Export Data on LAN</a>
@@ -61,7 +60,7 @@
           <a href="#">E-Invoice</a>
         </div>
       </div>
-      <h1>Invintory</h1>
+      <div><h1>Invintory</h1></div>
     </nav>
 
     <div id="popup" class="popup">
@@ -71,7 +70,7 @@
           <span class="close">&times;</span>
         </div>
         <form id="backupForm">
-          <div style="display: flex; justify-content: space-between; justify-content: space-between; margin-top: 10px;">
+          <div style="display: flex; justify-content: space-between; margin-top: 10px; align-items: center;">
             <h3>ALLOW WEB BACKUP</h3>
             <div class="radio-group">
               <label>
@@ -83,7 +82,7 @@
             </div>
           </div>
 
-          <div style="display: flex; justify-content: space-between; justify-content: space-between; margin-top: 10px;">
+          <div style="display: flex; justify-content: space-between; margin-top: 10px; align-items: center;">
             <h3 for="year">SELECT THE YEAR</h3>
             <select style="width: 95px;" id="year">
               <option value="T24">T24</option>
@@ -92,12 +91,12 @@
             </select>
           </div>
 
-          <div style="display: flex; justify-content: space-between; justify-content: space-between; margin-top: 10px;">
+          <div style="display: flex; justify-content:space-between; align-items: center; margin-top: 10px;">
             <h3 for="drive">SELECT THE DRIVE</h3>
             <input style="width: 95px;" type="text" id="drive" value="E">
           </div>
 
-          <div style="display: flex; justify-content: space-between; justify-content: space-between; margin-top: 10px;">
+          <div style="display: flex; justify-content: space-between; align-items: center;  margin-top: 10px;">
             <h3>Drive Option</h3>
             <div style="width: 45%;" class="radio-group">
               <label>
@@ -124,42 +123,39 @@
         <span class="close-btn blinking-text" id="close-terminal-btn">X</span>
       </div>
       <div class="terminal-body">
-        <pre>
+        <p>
                 Welcome to the terminal...
-      </pre>
+      </p>
       </div>
     </div>
 
 
     <div class="modal-overlay" id="modal-overlay">
-
       <div class="box">
-        <div style="height:36px; width:100%; display: flex; justify-content: space-between; align-items: center; background-color: #f1f1f1; padding: 10px; font-size: 20px;">
+        <div style="width:100%; display: flex; justify-content: space-between; align-items: center; background-color: #f1f1f1; padding: 10px; font-size: 20px;">
           <p>New Financial Year Creation</p>
           <button class="close-btn" onclick="closeModal()">X</button>
         </div>
         <h1>New Financial Year Creation And Transferring Closing Balance to New Financial Year...</h1>
         <div class="containerPop">
           <div class="date-inputs">
-            <div>
-              <label for="from-date">From Date: </label>
-              <input type="date" id="from-date" value="2025-04-01">
+            <div class="date-input">
+              <label >From Date: </label>
+              <input type="date"  value="2025-04-01">
             </div>
-            <div>
-              <label for="to-date">To Date: </label>
-              <input type="date" id="to-date" value="2026-03-31">
+            <div class="date-input">
+              <label >To Date: </label>
+              <input type="date" value="2026-03-31">
             </div>
-            <div>
-              <label for="database">Database Name: </label>
-              <input type="text" id="database" value="N25">
+            <div class="date-input">
+              <label> Database Name: </label>
+              <input type="text"  value="N25">
             </div>
           </div>
 
           <h2 align="center">Select Particulars on Check Box to Transfer From 20-25 to 25-26</h2>
-
-          <div>
-            <!-- Section 1 -->
-            <div style="display: flex; align-items: center; justify-content: space-between; padding: 10px; border-bottom: 1px dashed #ccc;">
+           <div>
+            <div class="cb" style="display: flex; align-items: center; justify-content: space-between; padding: 10px; border-bottom: 1px dashed #ccc;">
               <div class="section">
                 <h2>ACCOUNTS, DEBTORS, CREDITORS</h2>
                 <div class="checkbox-list">
@@ -167,7 +163,6 @@
                 </div>
               </div>
 
-              <!-- Section 2 -->
               <div class="section">
                 <h2>COMPANIES, PRODUCTS, GST SLABS</h2>
                 <div class="checkbox-list">
@@ -175,7 +170,7 @@
                 </div>
               </div>
             </div>
-            <div style="display: flex; align-items: center; justify-content: space-between; padding: 10px; border-bottom: 1px dashed #ccc;">
+            <div class="cb" style="display: flex; align-items: center; justify-content: space-between; padding: 10px; border-bottom: 1px dashed #ccc;">
               <div class="section">
                 <h2>------------PARTY'S BALANCE-----------</h2>
                 <div class="checkbox-list">
@@ -187,7 +182,6 @@
                 </div>
               </div>
 
-              <!-- Section 4 -->
               <div class="section">
                 <h2>------------CLOSING STOCK-----------</h2>
                 <div class="checkbox-list">
@@ -202,14 +196,14 @@
             </div>
             <div class="section">
               <div style="text-align: center;">
-                <h2>---------------------------------------------------CHALLAN---------------------------------------------------</h2>
+                   <h2 align="center">------------CHALLAN------------</h2>
               </div>
               <div style='display: flex; align-items: center; justify-content: space-between; padding: 10px; border-bottom: 1px dashed #ccc;'>
                 <label><input type="checkbox"> Pending Purchase Challan Transfer</label>
                 <label><input type="checkbox"> Pending Sales Challan Transfer</label>
               </div>
             </div>
-          </div>
+          </div>           
 
           <!-- Buttons -->
           <div class="buttons">
@@ -218,7 +212,7 @@
           </div>
         </div>
       </div>
-    </div>
+    </div>  
 
 
     <div class="alertContaint">

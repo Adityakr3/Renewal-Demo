@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="modal-overlay" id="modal-overlay">
+        <div class="box">
+          <div style="width:100%; display: flex; justify-content: space-between; align-items: center; background-color: #f1f1f1; padding: 10px; font-size: 20px;">
+            <p>New Financial Year Creation</p>
+            <button class="close-btn" onclick="closeModal()">X</button>
+          </div>
+          <h1>New Financial Year Creation And Transferring Closing Balance to New Financial Year...</h1>
+          <div class="containerPop">
+            <div class="date-inputs">
+              <div class="date-input">
+                <label>From Date: </label>
+                <input type="date" value="2025-04-01">
+              </div>
+              <div class="date-input">
+                <label>To Date: </label>
+                <input type="date" value="2026-03-31">
+              </div>
+              <div class="date-input">
+                <label>Database Name: </label>
+                <input type="text" value="N25">
+              </div>
+            </div>
+      
+            <h2 align="center">Select Particulars on Check Box to Transfer From 20-25 to 25-26</h2>
+            <div>
+              <div class="cb" style="display: flex; align-items: center; justify-content: space-between; padding: 10px; border-bottom: 1px dashed #ccc;">
+                <div class="section">
+                  <h2>ACCOUNTS, DEBTORS, CREDITORS</h2>
+                  <div class="checkbox-list">
+                    <label>
+                      <input type="checkbox" id="partyDetails" onclick="togglePopup('partyPopup')"> Party Details Transfer
+                    </label>
+                    <div id="partyPopup" class="popup" style="display:none;">Party Details Transfer Information</div>
+                  </div>
+                </div>
+      
+                <div class="section">
+                  <h2>COMPANIES, PRODUCTS, GST SLABS</h2>
+                  <div class="checkbox-list">
+                    <label>
+                      <input type="checkbox" id="productDetails" onclick="togglePopup('productPopup')"> Product Transfer Details
+                    </label>
+                    <div id="productPopup" class="popup" style="display:none;">Product Transfer Details Information</div>
+                  </div>
+                </div>
+              </div>
+      
+              <!-- More checkboxes here with popups -->
+      
+            </div>
+      
+            <!-- Buttons -->
+            <div class="buttons">
+              <a href="#">Apply</a>
+              <a href="/">Cancel</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- JavaScript to handle popup -->
+      <script>
+        function togglePopup(popupId) {
+          var popup = document.getElementById(popupId);
+          var checkbox = document.querySelector(`#${popupId}`).previousElementSibling;
+          if (checkbox.checked) {
+            popup.style.display = "block";
+          } else {
+            popup.style.display = "none";
+          }
+        }
+      </script>
+      
+      <!-- Style for popup (optional) -->
+      <style>
+        .popup {
+          background-color: #f1f1f1;
+          padding: 10px;
+          border: 1px solid #ccc;
+          margin-top: 5px;
+          display: none;
+        }
+      </style>
+      
+</body>
+</html>

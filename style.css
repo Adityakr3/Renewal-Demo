@@ -568,6 +568,15 @@ pre {
   margin-bottom: 8px;
 }
 
+#check1{
+  display: flex;
+  gap: 12px;
+}
+
+.c-lists-1,.c-lists-2{
+  visibility: hidden;
+}
+
 .buttons {
   text-align: center;
 }

@@ -158,15 +158,24 @@
             <div class="cb" style="display: flex; align-items: center; justify-content: space-between; padding: 10px; border-bottom: 1px dashed #ccc;">
               <div class="section">
                 <h2>ACCOUNTS, DEBTORS, CREDITORS</h2>
-                <div class="checkbox-list">
-                  <label><input type="checkbox"> Party Details Transfer</label>
+                <div class="checkbox-list" id="check1">
+                  <label><input type="checkbox" id="parentCheckbox"> Party Details Transfer</label>
+                  <div class="c-lists-1" id="childList">
+                    <label><input type="checkbox"> Party Details Transfer</label>
+                    <label><input type="checkbox"> Party Details Transfer</label>
+                  </div>
                 </div>
+                
               </div>
 
               <div class="section">
                 <h2>COMPANIES, PRODUCTS, GST SLABS</h2>
-                <div class="checkbox-list">
-                  <label><input type="checkbox"> Product Transfer Details</label>
+                <div class="checkbox-list" id="check1">
+                  <label><input type="checkbox" id="parentCheckbox1"> Party Details Transfer</label>
+                  <div class="c-lists-2" id="childList1">
+                    <label><input type="checkbox"> Party Details Transfer</label>
+                    <label><input type="checkbox"> Party Details Transfer</label>
+                  </div>
                 </div>
               </div>
             </div>
@@ -174,24 +183,28 @@
               <div class="section">
                 <h2>------------PARTY'S BALANCE-----------</h2>
                 <div class="checkbox-list">
-                  <label><input type="checkbox"> Party Wise Closing Balance Transfer</label>
-                  <label><input type="checkbox"> Bill Wise Closing Balance Transfer</label>
-                  <label><input type="checkbox"> Subgroup Wise/Bill Wise C.B. Transfer</label>
-                  <label><input type="checkbox"> Party's Expiry Ledger Transfer (GENERAL)</label>
-                  <label><input type="checkbox"> Party's Expiry Ledger Transfer (BILLWISE)</label>
+                  <label><input type="checkbox" class="balance-checkbox" data-message="Party Wise Closing Balance Transfer"> Party Wise Closing Balance Transfer</label>
+                  <label><input type="checkbox" class="balance-checkbox" data-message="Bill Wise Closing Balance Transfer"> Bill Wise Closing Balance Transfer</label>
+                  <label><input type="checkbox" class="balance-checkbox" data-message="Subgroup Wise/Bill Wise C.B. Transfer"> Subgroup Wise/Bill Wise C.B. Transfer</label>
+                  <label><input type="checkbox" class="balance-checkbox" data-message="Party's Expiry Ledger Transfer (GENERAL)"> Party's Expiry Ledger Transfer (GENERAL)</label>
+                  <label><input type="checkbox" class="balance-checkbox" data-message="Party's Expiry Ledger Transfer (BILLWISE)"> Party's Expiry Ledger Transfer (BILLWISE)</label>
                 </div>
               </div>
 
               <div class="section">
                 <h2>------------CLOSING STOCK-----------</h2>
                 <div class="checkbox-list">
-                  <label><input type="checkbox"> All Ob,Rate,Batch with Zero Qty Transfer</label>
-                  <label><input type="checkbox"> Only Batch wise Closing Qty,Rate Transfer</label>
-                  <label><input type="checkbox"> Closing Stock Only Batch Transfer</label>
-                  <label><input type="checkbox"> Closing Stock Only Opening Transfer</label>
-                  <label><input type="checkbox"> Quick Method</label>
-                  <label><input type="checkbox"> Expiry Closing Stock Transfer</label>
+                  <label><input type="checkbox" class="stock-checkbox" data-message="All Ob,Rate,Batch with Zero Qty Transfer"> All Ob,Rate,Batch with Zero Qty Transfer</label>
+                  <label><input type="checkbox" class="stock-checkbox" data-message="Only Batch wise Closing Qty,Rate Transfer"> Only Batch wise Closing Qty,Rate Transfer</label>
+                  <label><input type="checkbox" class="stock-checkbox" data-message="Closing Stock Only Batch Transfer"> Closing Stock Only Batch Transfer</label>
+                  <label><input type="checkbox" class="stock-checkbox" data-message="Closing Stock Only Opening Transfer"> Closing Stock Only Opening Transfer</label>
+                  <label><input type="checkbox" class="stock-checkbox" data-message="Quick Method"> Quick Method</label>
+                  <label><input type="checkbox" class="stock-checkbox" data-message="Expiry Closing Stock Transfer"> Expiry Closing Stock Transfer</label>
                 </div>
+              </div>
+              <div id="popup-box" style="display: none; position: fixed; top: 450px; left: 50%; transform: translateX(-50%); background: #fff; border: 1px solid #ccc; padding: 20px; box-shadow: 0 4px 8px rgba(0,0,0,0.2);">
+                <p id="popup-message"></p>
+                <button id="close-popup" style="margin-top: 20px; padding: 5px 20px; background-color: #222222; color: white; border: none; cursor: pointer;">Close</button>
               </div>
             </div>
             <div class="section">
@@ -242,8 +255,34 @@
 
 
   </div>
-  <script src="./pop.js"></script>
+  <script src="./script.js"></script>
   <script>
+    const checkboxes = document.querySelectorAll('.balance-checkbox, .stock-checkbox');
+  
+    // Get the popup box and message element
+    const popupBox = document.getElementById('popup-box');
+    const popupMessage = document.getElementById('popup-message');
+    const closePopupButton = document.getElementById('close-popup');
+  
+    // Function to show or hide the popup based on checkbox state
+    checkboxes.forEach(function(checkbox) {
+      checkbox.addEventListener('change', function() {
+        if (checkbox.checked) {
+          // Set the message in the popup box
+          popupMessage.textContent = checkbox.getAttribute('data-message');
+          
+          // Show the popup box
+          popupBox.style.display = 'block';
+        } else {
+          // Hide the popup when unchecked
+          popupBox.style.display = 'none';
+        }
+      });
+    });
+    closePopupButton.addEventListener('click', function() {
+      // Hide the popup box when the close button is clicked
+      popupBox.style.display = 'none';
+    });
     function openModal() {
       document.getElementById('modal-overlay').classList.add('active');
     }
@@ -252,6 +291,7 @@
       document.getElementById('modal-overlay').classList.remove('active');
     }
   </script>
+  
 </body>
 
 </html>
